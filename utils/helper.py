@@ -137,3 +137,7 @@ def take_first_part_of_songs(song, seconds):
 
 def define_column_widths():
     return st.columns((2, 0.25, 5, 4))
+
+
+def define_column_zero():
+    return st.columns((2, 3, 2))

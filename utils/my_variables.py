@@ -4,17 +4,25 @@ genres = {
 }
 
 options_radio = ['Upload a sound file', 'Choose a preloaded sound', 'Paste a YouTube link']
+
 allowed_extensions = ['mp3', 'wav']
+
 sound_choices = ['Make a choice', 'Your own file', 'Choose an example sound']
+
 y_ax_dict = {'log frequency': 'log', 'linear frequency': 'linear'}
+
 colormap_dict = {
     'copper': 'copper', 'black & white': 'gray_r', 'white & black': 'gray', 'blues': 'Blues',
     'orange & purple': 'CMRmap', 'dark yellow green blue': 'YlGnBu_r', 'ocean': 'ocean_r'
 }
+
 list_librosa_examples = ['None selected', 'brahms', 'acoustic guitar', 'choice', 'fishin', 'nutcracker',
                          'trumpet', 'vibeace']
+
+
 error_message_one = "<p style='text-align: center; color: #D33682; font-size: 15px;'>" \
                     "Sorry, but only mp3 or wav files are accepted</p>"
+
 error_message_two = "<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
                     "Woops, we do not seem to be able to read that file. Sorry about that. <br>" \
                     "Is it a valid mp3 or wav file? </p>"
