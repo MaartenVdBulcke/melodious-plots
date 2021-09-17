@@ -1,7 +1,13 @@
 import librosa.display
 import streamlit as st
 import gc
-
+import glob
+import os
+import youtube_dl
+# from pytube import YouTube
+import validators
+# import base64
+# from io import BytesIO
 from utils import helper, plot_and_predict, my_variables
 
 # set-up streamlit layout
@@ -63,12 +69,7 @@ elif sound_choice == my_variables.options_radio[2]:
     buf, col0, buff = helper.define_column_zero()
     provided_link = col0.text_input('YouTube link', 'Paste your valid link here: https://...')
 
-    import os
-    import youtube_dl
-    from pytube import YouTube
-    import validators
-    import base64
-    from io import BytesIO
+
 
     if validators.url(provided_link) and 'youtube' in provided_link.lower():
         ydl_opts = {
@@ -83,7 +84,6 @@ elif sound_choice == my_variables.options_radio[2]:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([provided_link])
 
-        import glob
 
         audio=None
         for audiofile in glob.glob('down/*.mp3'):
