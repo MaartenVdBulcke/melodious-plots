@@ -41,7 +41,7 @@ def plot_pie(votes):
 def get_plot_choices(column, signal):
     colormap_key = column.selectbox('color', my_variables.colormap_dict.keys())
     colormap_choice = my_variables.colormap_dict.get(colormap_key)
-    y_ax_key = column.selectbox('Change the y-axis:', my_variables.y_ax_dict.keys())
+    y_ax_key = column.selectbox('linear or logarithmic scale:', my_variables.y_ax_dict.keys())
     y_ax_choice = my_variables.y_ax_dict.get(y_ax_key)
     x_min, x_max = helper.show_x_slider(column, signal)
     y_min, y_max = helper.show_y_slider(y_ax_choice, column)
@@ -54,5 +54,3 @@ def plot_spectrogram_title_style(librosa_input, x_min, x_max, y_ax_choice,
     column_two.markdown("<h3 style='text-align: center; color: white;'>SPECTROGRAM</h3>", unsafe_allow_html=True)
     fig = plot_spectrogram(librosa_input, x_min, x_max, y_ax_choice, colormap_choice, y_min, y_max)
     column_two.pyplot(fig)
-
-

@@ -1,5 +1,6 @@
 import librosa
 import numpy as np
+import youtube_dl
 from tensorflow.keras import models
 import streamlit as st
 from pydub import AudioSegment
@@ -38,7 +39,7 @@ def get_librosa_input(signal, hop_length=1024):
 
 def show_y_slider(y_ax_choice, column):
     if y_ax_choice == 'log':
-        y_min, y_max = column.slider('zoom time axis', min_value=0, max_value=8193, value=(0, 8192))
+        y_min, y_max = column.slider('zoom frequency axis', min_value=0, max_value=8193, value=(0, 8192))
     else:
         y_min, y_max = column.slider('zoom frequency axis', min_value=0, max_value=10000, value=(0, 10000))
     return y_min, y_max
@@ -46,7 +47,7 @@ def show_y_slider(y_ax_choice, column):
 
 def show_x_slider(column, signal):
     max = int(librosa.get_duration(signal) / 2)
-    x_min, x_max = column.slider('zoom in/out x axis', min_value=0,
+    x_min, x_max = column.slider('zoom time axis', min_value=0,
                                  max_value=max, value=(0, max))
     return x_min, x_max
 
@@ -141,3 +142,34 @@ def define_column_widths():
 
 def define_column_zero():
     return st.columns((2, 3, 2))
+
+
+@st.cache
+def download_from_youtube(url):
+    ydl_opts = {
+        'format': 'worstaudio/worst',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '100',
+        }],
+        'outtmpl': 'down/%(title)s.%(ext)s'
+    }
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+
+
+@st.cache
+def get_filesize(link):
+    ydl_opts = {
+        'format': 'worstaudio/worst',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '100',
+        }],
+        'outtmpl': 'down/%(title)s.%(ext)s'
+    }
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        info_dict = ydl.extract_info(link, download=False)
+        return info_dict['filesize'], info_dict['title']
