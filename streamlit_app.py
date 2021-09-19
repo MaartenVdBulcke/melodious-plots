@@ -97,7 +97,7 @@ elif sound_choice == my_variables.options_radio[2]:
                 col1, buffer, col2, col3 = helper.define_column_widths()
 
                 audio = None
-                for audio in glob.glob('down/*.mp3'):
+                for audio in glob.glob('*.mp3'):
                     if audio is not None:
                         col0.audio(audio)
                         col0.markdown(artist_title)
