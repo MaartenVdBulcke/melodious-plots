@@ -1,3 +1,5 @@
+import os
+
 import librosa.display
 import streamlit as st
 import gc
@@ -73,19 +75,19 @@ elif sound_choice == my_variables.options_radio[2]:
         if 'list' in provided_link.lower():
             col0.write('We have trouble with this list-format. Please choose a shorter youtube url')
         else:
-        #     if st.session_state.latest_link != provided_link:
-            #     if st.session_state is not None:
-            #         folder = 'down'
-            #         files_in_directory = os.listdir(folder)
-            #         filtered_files = [file for file in files_in_directory if file.endswith(".mp3")]
-            #         for file in filtered_files:
-            #             path_to_file = os.path.join(folder, file)
-            #             os.remove(path_to_file)
+            if st.session_state.latest_link != provided_link:
+                if st.session_state is not None:
+                    # folder = '/'
+                    # files_in_directory = os.listdir(folder)
+                    filtered_files = [file for file in os.listdir('.') if file.endswith(".mp3")]
+                    for file in filtered_files:
+                        # path_to_file = os.path.join(folder, file)
+                        os.remove(file)
                     # st.markdown("<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
                     #           "We get here, and now.</p>",
                     #             unsafe_allow_html=True)
-            filesize, artist_title = helper.get_filesize(provided_link)
 
+            filesize, artist_title = helper.get_filesize(provided_link)
             if filesize > 10000000:  # 10MB
                 size_mb = round(int(filesize) / 1000000, 1)
                 col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
