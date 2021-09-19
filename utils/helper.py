@@ -153,7 +153,8 @@ def download_from_youtube(url):
             'preferredcodec': 'mp3',
             'preferredquality': '100',
         }],
-        'outtmpl': 'down/%(title)s.%(ext)s'
+        # 'outtmpl': 'down/%(title)s.%(ext)s'
+        # 'outtmpl': '%(title)s.%(ext)s'
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
