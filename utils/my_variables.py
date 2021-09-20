@@ -3,18 +3,18 @@ genres = {
     'jazz': 5, 'metal': 6, 'pop': 7, 'reggae': 8, 'rock': 9
 }
 
-options_radio = ['What are spectrograms?', 'Upload a mp3 or wav file', 'Choose a preloaded sound', 'Paste a YouTube link']
+options_radio = ['About this app', 'Upload a mp3 or wav file', 'Choose a preloaded sound', 'Paste a YouTube link']
 
 # allowed_extensions = ['mp3', 'wav']
 
-sound_choices = ['Make a choice', 'Your own file', 'Choose an example sound']
+# sound_choices = ['Make a choice', 'Your own file', 'Choose an example sound']
 
 y_ax_dict = {'log frequency': 'log', 'linear frequency': 'linear'}
 
 colormap_dict = {
     'copper': 'copper', 'black & white': 'gray_r', 'white & black': 'gray', 'blues': 'Blues',
     'orange & purple': 'CMRmap', 'dark yellow green blue': 'YlGnBu_r', 'ocean': 'ocean_r',
-    'sunset': 'plasma', 'blue yellow red':'gist_stern', 'bright':'jet'
+    'sunset': 'plasma', 'blue yellow red': 'gist_stern', 'bright': 'jet'
 }
 
 list_librosa_examples = ['No sound selected', 'acoustic guitar', 'trumpet', 'nightingale',
@@ -35,15 +35,16 @@ error_message_three = "<p style='text-align: center; color: #D33682; font-size: 
                       "Could you try again with a shorter song, please? </p>"
 
 error_message_four = "<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
-                      "We have trouble reading some YouTube-formats. <br>" \
-                      "Try simplifying your link in one of the following formats: <br>" \
-                      "   * https://www.youtube.com/watch?v=tSv04ylc6To <br> " \
-                      "   * https://youtu.be/oz2BZ8uTVsE </p> "
+                     "Woops, something went wrong. Sorry for the inconvenience </p> "
 
 error_message_five = "<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
-                      "The app is mainly developed for desktop. It can also work " \
-                      "on some mobile devices. Sometimes there are errors while " \
-                      "trying to read YouTube audio. Like now. Sorry for that.<br>" \
-                      "What should always work is taking a look at the example sounds "\
-                      "preloaded in the app </p>"
+                     "We have trouble reading some YouTube-formats. <br>" \
+                     "What could help is to trim down your YouTube-link to the following format:<br>" \
+                     "     https://www.youtube.com/watch?v=tSv04ylc6To <br>" \
+                     "<br>" \
+                     "If that doesn't help, then we are sorry for the inconvenience." \
+                     " May we invite you to take a look at some of the example sounds" \
+                     " preloaded in the app?"
 
+error_message_six = "<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
+                    "That does not seem to be a valid YouTube link. </p> "

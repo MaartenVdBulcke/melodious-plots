@@ -72,9 +72,8 @@ elif sound_choice == my_variables.options_radio[2]:
 ###################### YOUTUBE ########################
 
 elif sound_choice == my_variables.options_radio[3]:
-#
     buf, col0, buff = helper.define_column_zero()
-#
+
     provided_link = col0.text_input('', 'Paste your valid link here: https://...')
 
     if validators.url(provided_link) and 'youtu' in provided_link.lower():
@@ -83,15 +82,9 @@ elif sound_choice == my_variables.options_radio[3]:
         # else:
         if st.session_state.latest_link != provided_link:
             if st.session_state is not None:
-                # folder = '/'
-                # files_in_directory = os.listdir(folder)
                 filtered_files = [file for file in os.listdir('.') if file.endswith(".mp3")]
                 for file in filtered_files:
-                    # path_to_file = os.path.join(folder, file)
                     os.remove(file)
-                # st.markdown("<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
-                #           "We get here, and now.</p>",
-                #             unsafe_allow_html=True)
 
         filesize, artist_title = helper.get_filesize(provided_link)
         if filesize is None and artist_title is None:
@@ -112,9 +105,6 @@ elif sound_choice == my_variables.options_radio[3]:
                         col0.audio(audio)
                         col0.markdown(artist_title)
 
-                        # if not helper.allowed_file(audio):
-                        #     st.markdown(my_variables.error_message_one, unsafe_allow_html=True)
-                        # else:
                         song = helper.get_song(audio)
                         if song is None:
                             st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
@@ -128,5 +118,7 @@ elif sound_choice == my_variables.options_radio[3]:
                             plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
 
                 st.session_state.latest_link = provided_link
+    else:
+        st.markdown(my_variables.error_message_six, unsafe_allow_html=True)
 
 gc.collect()  # clean up
