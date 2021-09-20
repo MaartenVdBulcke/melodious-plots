@@ -32,6 +32,27 @@ def get_song(file):
         return None
 
 
+def display_expander_and_explanation():
+    b, col, bu = st.columns((1, 4, 1))
+    my_expander = col.expander('More about spectrograms')
+    with my_expander:
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>What are spectrograms?</h3>",
+                    unsafe_allow_html=True)
+        st.markdown(my_variables.about_this_app_part_one, unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>The vertical axis</h3>",
+                    unsafe_allow_html=True)
+        st.markdown(my_variables.about_this_app_part_two, unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>Distinguishing sounds visually</h3>",
+                    unsafe_allow_html=True)
+        st.markdown(my_variables.about_this_app_part_three, unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>Enjoy some melodious plots</h3>",
+                    unsafe_allow_html=True)
+
+    buf, col0, buff, col1, buffer = st.columns((2, 3, 1, 3, 2))
+    col0.image('visuals/acousticguitar.png', caption='acoustic guitar')
+    col1.image('visuals/trumpet.png', caption='trumpet')
+
+
 @st.cache
 def get_librosa_input(signal, hop_length=1024):
     return librosa.amplitude_to_db(np.abs(librosa.stft(signal, hop_length=hop_length)), ref=np.max)
@@ -197,6 +218,7 @@ def download_from_youtube(url):
     except:
         st.markdown(my_variables.error_message_four, unsafe_allow_html=True)
         return False
+
 
 @st.cache
 def get_filesize(link):

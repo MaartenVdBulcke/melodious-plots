@@ -26,20 +26,7 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content
 sound_choice = st.radio('', my_variables.options_radio)
 
 if sound_choice == my_variables.options_radio[0]:
-    b, col, bu = st.columns((1,4,1))
-    my_expander = col.expander('More about spectrograms')
-    with my_expander:
-        st.markdown("<h3 style='text-align: center; color: #deb887;'>What are spectrograms?</h3>", unsafe_allow_html=True)
-        st.markdown(my_variables.about_this_app_part_one, unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center; color: #deb887;'>The vertical axis</h3>", unsafe_allow_html=True)
-        st.markdown(my_variables.about_this_app_part_two, unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center; color: #deb887;'>Distinguishing sounds visually</h3>", unsafe_allow_html=True)
-        st.markdown(my_variables.about_this_app_part_three, unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center; color: #deb887;'>Enjoy creating some melodious plots</h3>", unsafe_allow_html=True)
-
-    buf, col0, buff, col1, buffer = st.columns((2,3,1,3,2))
-    col0.image('visuals/acousticguitar.png', caption='acoustic guitar')
-    col1.image('visuals/trumpet.png', caption='trumpet')
+    helper.display_expander_and_explanation()
 
 elif sound_choice == my_variables.options_radio[1]:
     buf, col0, buff = helper.define_column_zero()
@@ -48,16 +35,11 @@ elif sound_choice == my_variables.options_radio[1]:
 
     if uploaded_file is not None:
         upload_name = uploaded_file.name
-
-        # if not helper.allowed_file(upload_name):
-        #     st.markdown(my_variables.error_message_one, unsafe_allow_html=True)
-        # DELETE THIS OPTION BECAUSE OF FILES WITHOUT EXTENSION
-
         song = helper.get_song(uploaded_file)
         if song is None:
             st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
         else:
-            col0.audio(uploaded_file)  # option to play the example audio
+            col0.audio(uploaded_file)
             col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>", unsafe_allow_html=True)
             uploaded_file.close()  # delete buffered upload data
             song_beginnings = helper.take_first_part_of_songs(song, 45)
@@ -65,7 +47,6 @@ elif sound_choice == my_variables.options_radio[1]:
             signal, _ = librosa.load(file_au, sr=None)
             librosa_input = helper.get_librosa_input(signal)
             plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
-
 
 elif sound_choice == my_variables.options_radio[2]:
     buf, col0, buff = helper.define_column_zero()
@@ -75,22 +56,16 @@ elif sound_choice == my_variables.options_radio[2]:
         pass
     else:
         song, signal = helper.get_signal_from_song(example_choice)
-        col0.audio(song)  # option to play the example audio
+        col0.audio(song)
         librosa_input = helper.get_librosa_input(signal)
         col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>", unsafe_allow_html=True)
         plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
 
-###################### YOUTUBE ########################
-
 elif sound_choice == my_variables.options_radio[3]:
     buf, col0, buff = helper.define_column_zero()
-
     provided_link = col0.text_input('', 'Paste your valid link here: https://...')
 
     if validators.url(provided_link) and 'youtu' in provided_link.lower():
-        # if 'list' in provided_link.lower():
-        #     col0.write('We have trouble with this list-format. Please choose a shorter youtube url')
-        # else:
         if st.session_state.latest_link != provided_link:
             if st.session_state is not None:
                 filtered_files = [file for file in os.listdir('.') if file.endswith(".mp3")]
