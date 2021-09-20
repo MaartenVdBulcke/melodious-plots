@@ -1,8 +1,9 @@
-librosa=0.8.1
-numpy=1.21.2
-streamlit=0.88.0
-tensorflow=2.5.0
-tensorflow-gpu=2.5.0
-pydub=0.25.1
-plotly=5.3.1
-validators=0.18.2
+librosa==0.8.1
+matplotlib==3.4.3
+numpy==1.21.2
+streamlit==0.88.0
+tensorflow-gpu==2.5.0
+pydub==0.25.1
+plotly==5.3.1
+validators==0.18.2
+youtube-dl==2021.6.6
