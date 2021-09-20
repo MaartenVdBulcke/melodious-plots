@@ -19,7 +19,7 @@ if 'latest_link' not in st.session_state:
 
 model = helper.load_model('custom_cnn_2d.h5')  # load keras model
 
-st.markdown("<h1 style='text-align: center; color: white;'>TO DISCO OR NOT TO DISCO</h3>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: white;'>SOME MELODIOUS PLOTS</h3>", unsafe_allow_html=True)
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center}</style>',
          unsafe_allow_html=True)
 
@@ -27,7 +27,7 @@ sound_choice = st.radio('', my_variables.options_radio)
 
 if sound_choice == my_variables.options_radio[0]:
     buf, col0, buff = helper.define_column_zero()
-    uploaded_file = col0.file_uploader('Only .mp3 or .wav files are accepted')
+    uploaded_file = col0.file_uploader('')
     col1, buffer, col2, col3 = helper.define_column_widths()
 
     if uploaded_file is not None:
@@ -51,7 +51,7 @@ if sound_choice == my_variables.options_radio[0]:
 
 elif sound_choice == my_variables.options_radio[1]:
     buf, col0, buff = helper.define_column_zero()
-    example_choice = col0.selectbox('Your example sound:', my_variables.list_librosa_examples)
+    example_choice = col0.selectbox('', my_variables.list_librosa_examples)
     col1, buffer, col2, col3 = helper.define_column_widths()
     if example_choice == my_variables.list_librosa_examples[0]:
         pass

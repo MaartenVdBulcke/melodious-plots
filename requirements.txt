@@ -1,8 +1,0 @@
-pydub==0.25.1
-streamlit==0.88.0
-librosa==0.8.1
-matplotlib==3.4.3
-tensorflow-gpu==2.5.0
-plotly==5.3.1
-youtube-dl==2021.6.6
-validators==0.18.2
