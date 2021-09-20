@@ -144,7 +144,6 @@ def define_column_zero():
     return st.columns((2, 3, 2))
 
 
-@st.cache
 def download_from_youtube(url):
     ydl_opts = {
         'format': 'worstaudio/worst',
@@ -160,9 +159,10 @@ def download_from_youtube(url):
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
+        return True
     except:
         st.markdown(my_variables.error_message_four, unsafe_allow_html=True)
-
+        return False
 
 @st.cache
 def get_filesize(link):
@@ -175,6 +175,9 @@ def get_filesize(link):
         }],
         'outtmpl': 'down/%(title)s.%(ext)s'
     }
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        info_dict = ydl.extract_info(link, download=False)
-        return info_dict['filesize'], info_dict['title']
+    try:
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(link, download=False)
+            return info_dict['filesize'], info_dict['title']
+    except:
+        return None, None

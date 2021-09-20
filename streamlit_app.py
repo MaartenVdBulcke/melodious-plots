@@ -26,6 +26,11 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content
 sound_choice = st.radio('', my_variables.options_radio)
 
 if sound_choice == my_variables.options_radio[0]:
+    st.write('add explanation on spectrograms, show comparison between '
+        'guitar and trumpet, explain genre classification')
+
+
+elif sound_choice == my_variables.options_radio[1]:
     buf, col0, buff = helper.define_column_zero()
     uploaded_file = col0.file_uploader('')
     col1, buffer, col2, col3 = helper.define_column_widths()
@@ -33,23 +38,25 @@ if sound_choice == my_variables.options_radio[0]:
     if uploaded_file is not None:
         upload_name = uploaded_file.name
 
-        if not helper.allowed_file(upload_name):
-            st.markdown(my_variables.error_message_one, unsafe_allow_html=True)
-        else:
-            song = helper.get_song(uploaded_file)
-            if song is None:
-                st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
-            else:
-                col0.audio(uploaded_file)  # option to play the example audio
-                col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>", unsafe_allow_html=True)
-                uploaded_file.close()  # delete buffered upload data
-                song_beginnings = helper.take_first_part_of_songs(song, 45)
-                file_au = song_beginnings.export(format='au')
-                signal, _ = librosa.load(file_au, sr=None)
-                librosa_input = helper.get_librosa_input(signal)
-                plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
+        # if not helper.allowed_file(upload_name):
+        #     st.markdown(my_variables.error_message_one, unsafe_allow_html=True)
+        # DELETE THIS OPTION BECAUSE OF FILES WITHOUT EXTENSION
 
-elif sound_choice == my_variables.options_radio[1]:
+        song = helper.get_song(uploaded_file)
+        if song is None:
+            st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
+        else:
+            col0.audio(uploaded_file)  # option to play the example audio
+            col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>", unsafe_allow_html=True)
+            uploaded_file.close()  # delete buffered upload data
+            song_beginnings = helper.take_first_part_of_songs(song, 45)
+            file_au = song_beginnings.export(format='au')
+            signal, _ = librosa.load(file_au, sr=None)
+            librosa_input = helper.get_librosa_input(signal)
+            plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
+
+
+elif sound_choice == my_variables.options_radio[2]:
     buf, col0, buff = helper.define_column_zero()
     example_choice = col0.selectbox('', my_variables.list_librosa_examples)
     col1, buffer, col2, col3 = helper.define_column_widths()
@@ -64,7 +71,7 @@ elif sound_choice == my_variables.options_radio[1]:
 
 ###################### YOUTUBE ########################
 
-elif sound_choice == my_variables.options_radio[2]:
+elif sound_choice == my_variables.options_radio[3]:
 #
     buf, col0, buff = helper.define_column_zero()
 #
@@ -87,37 +94,39 @@ elif sound_choice == my_variables.options_radio[2]:
                 #             unsafe_allow_html=True)
 
         filesize, artist_title = helper.get_filesize(provided_link)
-        if filesize > 10000000:  # 10MB
+        if filesize is None and artist_title is None:
+            st.markdown(my_variables.error_message_five, unsafe_allow_html=True)
+        elif filesize > 10000000:  # 10MB
             size_mb = round(int(filesize) / 1000000, 1)
             col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
                       unsafe_allow_html=True)
             st.markdown(my_variables.error_message_three, unsafe_allow_html=True)
         else:
-            helper.download_from_youtube(provided_link)
-            buf, col0, buff = helper.define_column_zero()
-            col1, buffer, col2, col3 = helper.define_column_widths()
+            valid = helper.download_from_youtube(provided_link)
+            if valid:
+                buf, col0, buff = helper.define_column_zero()
+                col1, buffer, col2, col3 = helper.define_column_widths()
+                audio = None
+                for audio in glob.glob('*.mp3'):
+                    if audio is not None:
+                        col0.audio(audio)
+                        col0.markdown(artist_title)
 
-            audio = None
-            for audio in glob.glob('*.mp3'):
-                if audio is not None:
-                    col0.audio(audio)
-                    col0.markdown(artist_title)
-
-                    if not helper.allowed_file(audio):
-                        st.markdown(my_variables.error_message_one, unsafe_allow_html=True)
-                    else:
+                        # if not helper.allowed_file(audio):
+                        #     st.markdown(my_variables.error_message_one, unsafe_allow_html=True)
+                        # else:
                         song = helper.get_song(audio)
                         if song is None:
                             st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
                         else:
                             col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>",
-                                      unsafe_allow_html=True)
+                                  unsafe_allow_html=True)
                             song_beginnings = helper.take_first_part_of_songs(song, 45)
                             file_au = song_beginnings.export(format='au')
                             signal, _ = librosa.load(file_au, sr=None)
                             librosa_input = helper.get_librosa_input(signal)
                             plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
 
-            st.session_state.latest_link = provided_link
+                st.session_state.latest_link = provided_link
 
 gc.collect()  # clean up
