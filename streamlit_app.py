@@ -72,53 +72,53 @@ elif sound_choice == my_variables.options_radio[2]:
                                     'https://youtu.be/xxxxxxxxxx', 'Paste your valid link here: https://...')
 
     if validators.url(provided_link) and 'youtu' in provided_link.lower():
-        if 'list' in provided_link.lower():
-            col0.write('We have trouble with this list-format. Please choose a shorter youtube url')
+        # if 'list' in provided_link.lower():
+        #     col0.write('We have trouble with this list-format. Please choose a shorter youtube url')
+        # else:
+        if st.session_state.latest_link != provided_link:
+            if st.session_state is not None:
+                # folder = '/'
+                # files_in_directory = os.listdir(folder)
+                filtered_files = [file for file in os.listdir('.') if file.endswith(".mp3")]
+                for file in filtered_files:
+                    # path_to_file = os.path.join(folder, file)
+                    os.remove(file)
+                # st.markdown("<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
+                #           "We get here, and now.</p>",
+                #             unsafe_allow_html=True)
+
+        filesize, artist_title = helper.get_filesize(provided_link)
+        if filesize > 10000000:  # 10MB
+            size_mb = round(int(filesize) / 1000000, 1)
+            col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
+                      unsafe_allow_html=True)
+            st.markdown(my_variables.error_message_three, unsafe_allow_html=True)
         else:
-            if st.session_state.latest_link != provided_link:
-                if st.session_state is not None:
-                    # folder = '/'
-                    # files_in_directory = os.listdir(folder)
-                    filtered_files = [file for file in os.listdir('.') if file.endswith(".mp3")]
-                    for file in filtered_files:
-                        # path_to_file = os.path.join(folder, file)
-                        os.remove(file)
-                    # st.markdown("<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
-                    #           "We get here, and now.</p>",
-                    #             unsafe_allow_html=True)
+            helper.download_from_youtube(provided_link)
+            buf, col0, buff = helper.define_column_zero()
+            col1, buffer, col2, col3 = helper.define_column_widths()
 
-            filesize, artist_title = helper.get_filesize(provided_link)
-            if filesize > 10000000:  # 10MB
-                size_mb = round(int(filesize) / 1000000, 1)
-                col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
-                          unsafe_allow_html=True)
-                st.markdown(my_variables.error_message_three, unsafe_allow_html=True)
-            else:
-                helper.download_from_youtube(provided_link)
-                buf, col0, buff = helper.define_column_zero()
-                col1, buffer, col2, col3 = helper.define_column_widths()
+            audio = None
+            for audio in glob.glob('*.mp3'):
+                if audio is not None:
+                    col0.audio(audio)
+                    col0.markdown(artist_title)
 
-                audio = None
-                for audio in glob.glob('*.mp3'):
-                    if audio is not None:
-                        col0.audio(audio)
-                        col0.markdown(artist_title)
-
-                        if not helper.allowed_file(audio):
-                            st.markdown(my_variables.error_message_one, unsafe_allow_html=True)
+                    if not helper.allowed_file(audio):
+                        st.markdown(my_variables.error_message_one, unsafe_allow_html=True)
+                    else:
+                        song = helper.get_song(audio)
+                        if song is None:
+                            st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
                         else:
-                            song = helper.get_song(audio)
-                            if song is None:
-                                st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
-                            else:
-                                col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>",
-                                          unsafe_allow_html=True)
-                                song_beginnings = helper.take_first_part_of_songs(song, 45)
-                                file_au = song_beginnings.export(format='au')
-                                signal, _ = librosa.load(file_au, sr=None)
-                                librosa_input = helper.get_librosa_input(signal)
-                                plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
+                            col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>",
+                                      unsafe_allow_html=True)
+                            song_beginnings = helper.take_first_part_of_songs(song, 45)
+                            file_au = song_beginnings.export(format='au')
+                            signal, _ = librosa.load(file_au, sr=None)
+                            librosa_input = helper.get_librosa_input(signal)
+                            plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
 
-                st.session_state.latest_link = provided_link
+            st.session_state.latest_link = provided_link
 
 gc.collect()  # clean up

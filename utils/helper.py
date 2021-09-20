@@ -156,8 +156,12 @@ def download_from_youtube(url):
         # 'outtmpl': 'down/%(title)s.%(ext)s'
         # 'outtmpl': '%(title)s.%(ext)s'
     }
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
+
+    try:
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
+    except:
+        st.markdown(my_variables.error_message_four, unsafe_allow_html=True)
 
 
 @st.cache
