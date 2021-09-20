@@ -50,7 +50,7 @@ error_message_six = "<p style='text-align: center; color: #D33682; font-size: 15
                     "That does not seem to be a valid YouTube link. </p> "
 
 about_this_app_part_one = "<p style='text-align: center; color:white; font-size: 15px;'> " \
-                          "Spectrograms are plots that make sound visual. <br><br> " \
+                          "Spectrograms are melodious plots.<br> They make sound visible. <br><br> " \
                           "They not only look fascinating. They are also used in practical" \
                           " applications like speech recognition or music analysis. <br>" \
                           "Besides from visualising audio signals, this app classifies sounds into" \
