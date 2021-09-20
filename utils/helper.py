@@ -149,7 +149,7 @@ def get_signal_from_song(example_choice):
         signal, _ = librosa.load(song, 44100)
     elif example_choice == 'clair de lune':
         song = 'audio/debussy_clairdelune.mp3'
-        signal, _ = librosa.load(song, 44100)   # nice plot, no time limit
+        signal, _ = librosa.load(song, 44100, duration=45.0)
     elif example_choice == 'mozart':
         song = 'audio/mozart_rondaallaturca.mp3'
         signal, _ = librosa.load(song, 44100, duration=45.0)
