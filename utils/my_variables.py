@@ -50,7 +50,7 @@ about_this_app_part_one = "<p style='text-align: center; color:white; font-size:
                           "They not only look fascinating. They are also used in practical" \
                           " applications like speech recognition or music analysis. <br>" \
                           "Besides from visualising audio signals, this app classifies sounds into" \
-                          " music genres, using spectrograms. And does so correctly in 72% of the cases. </p>"
+                          " music genres, using spectrograms. <br> And does so correctly in 72% of the cases. </p>"
 
 about_this_app_part_two = "<p style='text-align: center; color:white; font-size: 15px;'> " \
                           "You can choose if you want to plot the y-axis on a linear or a logarithmic scale.<br>" \
