@@ -68,8 +68,7 @@ elif sound_choice == my_variables.options_radio[2]:
 #
     buf, col0, buff = helper.define_column_zero()
 #
-    provided_link = col0.text_input('Accepted formats: www.youtube.com/watch?v=xxxxxxxxx, '
-                                    'https://youtu.be/xxxxxxxxxx', 'Paste your valid link here: https://...')
+    provided_link = col0.text_input('', 'Paste your valid link here: https://...')
 
     if validators.url(provided_link) and 'youtu' in provided_link.lower():
         # if 'list' in provided_link.lower():
