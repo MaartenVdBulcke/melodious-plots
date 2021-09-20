@@ -10,7 +10,7 @@ import validators
 from utils import helper, plot_and_predict, my_variables
 
 # set-up streamlit layout
-st.set_page_config(page_title="melodious plots", layout="wide")
+st.set_page_config(page_title="some melodious plots", layout="wide")
 hide_st_style = """ <style> footer {visibility: hidden;} </style> """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
@@ -26,9 +26,20 @@ st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content
 sound_choice = st.radio('', my_variables.options_radio)
 
 if sound_choice == my_variables.options_radio[0]:
-    st.write('add explanation on spectrograms, show comparison between '
-        'guitar and trumpet, explain genre classification')
+    b, col, bu = st.columns((1,4,1))
+    my_expander = col.expander('More about spectrograms')
+    with my_expander:
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>What are spectrograms?</h3>", unsafe_allow_html=True)
+        st.markdown(my_variables.about_this_app_part_one, unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>The vertical axis</h3>", unsafe_allow_html=True)
+        st.markdown(my_variables.about_this_app_part_two, unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>Distinguishing sounds visually</h3>", unsafe_allow_html=True)
+        st.markdown(my_variables.about_this_app_part_three, unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>Enjoy creating some melodious plots</h3>", unsafe_allow_html=True)
 
+    buf, col0, buff, col1, buffer = st.columns((2,3,1,3,2))
+    col0.image('visuals/acousticguitar.png', caption='acoustic guitar')
+    col1.image('visuals/trumpet.png', caption='trumpet')
 
 elif sound_choice == my_variables.options_radio[1]:
     buf, col0, buff = helper.define_column_zero()

@@ -3,7 +3,7 @@ genres = {
     'jazz': 5, 'metal': 6, 'pop': 7, 'reggae': 8, 'rock': 9
 }
 
-options_radio = ['About this app', 'Upload a mp3 or wav file', 'Choose a preloaded sound', 'Paste a YouTube link']
+options_radio = ['About spectrograms', 'Upload a mp3 or wav file', 'Choose a preloaded sound', 'Paste a YouTube link']
 
 # allowed_extensions = ['mp3', 'wav']
 
@@ -48,3 +48,26 @@ error_message_five = "<p style='text-align: center; color: #D33682; font-size: 1
 
 error_message_six = "<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
                     "That does not seem to be a valid YouTube link. </p> "
+
+about_this_app_part_one = "<p style='text-align: center; color:white; font-size: 15px;'> " \
+                          "Spectrograms are plots that make sound visual. <br><br> " \
+                          "They not only look fascinating. They are also used in practical" \
+                          " applications like speech recognition or music analysis. <br>" \
+                          "Besides from visualising audio signals, this app classifies sounds into" \
+                          " music genres, using spectrograms. And does so correctly in 72% of the cases). </p>"
+
+about_this_app_part_two = "<p style='text-align: center; color:white; font-size: 15px;'> " \
+                          "You can choose if you want to plot the y-axis on a linear or a logarithmic scale.<br>" \
+                          "One: human hearing responds logarithmically to sound instead of linear. <br>" \
+                          "Two: switching between linear of logarithmic " \
+                          "can improve the readability (and beauty) of a spectrogram. " \
+                          "</p>"
+
+about_this_app_part_three = "<p style='text-align: center; color:white; font-size: 15px;'> " \
+                            "Spectrograms show the different characteristics in sounds. <br>" \
+                            "When using simple audio signals, it is easy for the human eye to distinguish between different types of music:<br> " \
+                            "Just take a look at the differences in the two spectrograms below. <br>" \
+                            "The guitar has a vertical pattern, the trumpet a horizontal one. <br>" \
+                            "The guitar is more likely to be classified as country, the trumpet as jazz. <br><br> " \
+                            "</p>"
+
