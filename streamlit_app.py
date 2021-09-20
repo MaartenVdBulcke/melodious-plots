@@ -129,6 +129,8 @@ elif sound_choice == my_variables.options_radio[3]:
                             plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
 
                 st.session_state.latest_link = provided_link
+    elif provided_link.startswith('Paste'):
+        pass
     else:
         st.markdown(my_variables.error_message_six, unsafe_allow_html=True)
 
