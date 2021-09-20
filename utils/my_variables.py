@@ -5,10 +5,6 @@ genres = {
 
 options_radio = ['About spectrograms', 'Upload a mp3 or wav file', 'Choose a preloaded sound', 'Paste a YouTube link']
 
-# allowed_extensions = ['mp3', 'wav']
-
-# sound_choices = ['Make a choice', 'Your own file', 'Choose an example sound']
-
 y_ax_dict = {'log frequency': 'log', 'linear frequency': 'linear'}
 
 colormap_dict = {
@@ -54,7 +50,7 @@ about_this_app_part_one = "<p style='text-align: center; color:white; font-size:
                           "They not only look fascinating. They are also used in practical" \
                           " applications like speech recognition or music analysis. <br>" \
                           "Besides from visualising audio signals, this app classifies sounds into" \
-                          " music genres, using spectrograms. And does so correctly in 72% of the cases). </p>"
+                          " music genres, using spectrograms. And does so correctly in 72% of the cases. </p>"
 
 about_this_app_part_two = "<p style='text-align: center; color:white; font-size: 15px;'> " \
                           "You can choose if you want to plot the y-axis on a linear or a logarithmic scale.<br>" \
@@ -70,4 +66,3 @@ about_this_app_part_three = "<p style='text-align: center; color:white; font-siz
                             "The guitar has a vertical pattern, the trumpet a horizontal one. <br>" \
                             "The guitar is more likely to be classified as country, the trumpet as jazz. <br><br> " \
                             "</p>"
-
