@@ -10,7 +10,7 @@ import validators
 from utils import helper, plot_and_predict, my_variables
 
 # set-up streamlit layout
-st.set_page_config(page_title="to disco", layout="wide")
+st.set_page_config(page_title="melodious plots", layout="wide")
 hide_st_style = """ <style> footer {visibility: hidden;} </style> """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 

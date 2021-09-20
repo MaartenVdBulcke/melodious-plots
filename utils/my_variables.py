@@ -17,8 +17,10 @@ colormap_dict = {
     'sunset': 'plasma', 'blue yellow red':'gist_stern', 'bright':'jet'
 }
 
-list_librosa_examples = ['None selected', 'brahms', 'acoustic guitar', 'choice', 'fishin', 'nutcracker',
-                         'trumpet', 'vibeace']
+list_librosa_examples = ['No sound selected', 'acoustic guitar', 'trumpet', 'nightingale',
+                         'accordeon', 'electric guitar', 'harmonica',
+                         'gregorian', 'xylophone', 'saxophone', 'clair de lune',
+                         'mozart', 'electropop song', 'jazz song']
 
 error_message_one = "<p style='text-align: center; color: #D33682; font-size: 15px;'>" \
                     "Sorry, but only mp3 or wav files are accepted</p>"
@@ -40,8 +42,8 @@ error_message_four = "<p style='text-align: center; color: #D33682; font-size: 1
 
 error_message_five = "<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
                       "The app is mainly developed for desktop. It can also work " \
-                      "on some mobile devices. <br> Sometimes there are errors while " \
+                      "on some mobile devices. Sometimes there are errors while " \
                       "trying to read YouTube audio. Like now. Sorry for that.<br>" \
-                      "What should always work is taking a look at the example sounds <br>"\
-                      " preloaded in the app </p>"
+                      "What should always work is taking a look at the example sounds "\
+                      "preloaded in the app </p>"
 

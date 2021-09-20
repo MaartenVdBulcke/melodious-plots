@@ -1,6 +1,5 @@
 from utils import plotting, helper
 
-
 def predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3):
     colormap_choice, x_min, x_max, y_ax_choice, y_min, y_max = plotting.get_plot_choices(col1, signal)
     plotting.plot_spectrogram_title_style(librosa_input, x_min, x_max, y_ax_choice, colormap_choice,

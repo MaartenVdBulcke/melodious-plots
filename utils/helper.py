@@ -15,10 +15,10 @@ def load_model(model_path):
     return models.load_model(model_path)
 
 
-@st.cache
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in my_variables.allowed_extensions
+# @st.cache
+# def allowed_file(filename):
+#     return '.' in filename and \
+#            filename.rsplit('.', 1)[1].lower() in my_variables.allowed_extensions
 
 
 @st.cache
@@ -124,9 +124,43 @@ def get_signal_from_song(example_choice):
     elif example_choice == 'acoustic guitar':
         song = 'audio/oasis_acoustic.wav'
         signal, _ = librosa.load(song, 44100)
-    else:
-        song = librosa.ex(example_choice)
+    elif example_choice == 'nightingale':
+        song = 'audio/nightingale.mp3'
+        signal, _ = librosa.load(song, 44100)
+        # song = librosa.ex(example_choice)
+        # signal, _ = librosa.load(song, 44100, duration=45.0)
+    elif example_choice == 'accordeon':
+        song = 'audio/accordeon.wav'
+        signal, _ = librosa.load(song, 44100)
+    elif example_choice == 'electric guitar':
+        song = 'audio/electricalguitar.wav'
+        signal, _ = librosa.load(song, 44100)
+    elif example_choice == 'harmonica':
+        song = 'audio/harmonica.wav'
+        signal, _ = librosa.load(song, 44100)
+    elif example_choice == 'gregorian':
+        song = 'audio/gregorian.wav'
+        signal, _ = librosa.load(song, 44100)
+    elif example_choice == 'xylophone':
+        song = 'audio/xylophone.wav'
+        signal, _ = librosa.load(song, 44100)
+    elif example_choice == 'saxophone':
+        song = 'audio/sax.wav'
+        signal, _ = librosa.load(song, 44100)
+    elif example_choice == 'clair de lune':
+        song = 'audio/debussy_clairdelune.mp3'
+        signal, _ = librosa.load(song, 44100)   # nice plot, no time limit
+    elif example_choice == 'mozart':
+        song = 'audio/mozart_rondaallaturca.mp3'
         signal, _ = librosa.load(song, 44100, duration=45.0)
+    elif example_choice == 'electropop song':
+        song = 'audio/electropop.mp3'
+        signal, _ = librosa.load(song, 44100, duration=45.0)
+    elif example_choice == 'jazz song':
+        song = 'audio/jazzsong.mp3'
+        signal, _ = librosa.load(song, 44100, duration=45.0)
+    else:
+        song, signal = None, None
 
     return song, signal
 
