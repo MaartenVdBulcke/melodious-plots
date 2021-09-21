@@ -162,6 +162,9 @@ def get_signal_from_song(example_choice):
     elif example_choice == 'harmonica':
         song = 'audio/harmonica.wav'
         signal, _ = librosa.load(song, 44100)
+    elif example_choice == 'pure tone (e)':
+        song = 'audio/pure_e.wav'
+        signal, _ = librosa.load(song, 44100)
     elif example_choice == 'gregorian':
         song = 'audio/gregorian.wav'
         signal, _ = librosa.load(song, 44100)

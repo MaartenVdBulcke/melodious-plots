@@ -14,7 +14,7 @@ colormap_dict = {
 }
 
 list_librosa_examples = ['No sound selected', 'acoustic guitar', 'trumpet', 'nightingale',
-                         'accordeon', 'electric guitar', 'harmonica',
+                         'accordeon', 'electric guitar', 'harmonica', 'pure tone (e)',
                          'gregorian', 'xylophone', 'saxophone', 'clair de lune',
                          'mozart', 'electropop song', 'jazz song']
 
