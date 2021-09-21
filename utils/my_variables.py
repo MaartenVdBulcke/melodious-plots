@@ -66,8 +66,8 @@ about_this_app_part_three = "<p style='text-align: center; color:white; font-siz
 
 about_this_app_part_four = "<p style='text-align: center; color:white; font-size: 15px;'> " \
                            "Spectrograms show the different characteristics in sounds. <br>" \
-                           "When using simple audio signals, it is easy for the human eye to distinguish between different types of music:<br> " \
-                           "Just take a look at the differences in the two spectrograms below. <br>" \
+                           "When using simple audio signals, it is easy for the human eye to distinguish between different types of music.<br> " \
+                           "Take a look at the differences in the spectrograms below. <br>" \
                            "The guitar has a vertical pattern, the trumpet a horizontal one. <br>" \
-                           "The guitar is more likely to be classified as country, the trumpet as jazz. <br><br> " \
+                           "The guitar is more likely to be classified as country, the trumpet as jazz. <br>" \
                            "</p>"
