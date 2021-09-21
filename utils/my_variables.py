@@ -47,10 +47,8 @@ error_message_six = "<p style='text-align: center; color: #D33682; font-size: 15
 
 about_this_app_part_one = "<p style='text-align: center; color:white; font-size: 15px;'> " \
                           "Spectrograms are melodious plots.<br> They make sound visible. <br><br> " \
-                          "They not only look fascinating. They are also used in practical" \
-                          " applications like speech recognition or music analysis. <br>" \
-                          "Besides from visualising audio signals, this app classifies sounds into" \
-                          " music genres, using spectrograms. <br> And does so correctly in 72% of the cases. </p>"
+                          "They do not only look fascinating. They are also used in practical" \
+                          " applications like speech recognition or music analysis. <br> </p>"
 
 about_this_app_part_two = "<p style='text-align: center; color:white; font-size: 15px;'> " \
                           "You can choose if you want to plot the y-axis on a linear or a logarithmic scale.<br>" \
@@ -65,4 +63,6 @@ about_this_app_part_three = "<p style='text-align: center; color:white; font-siz
                             "Just take a look at the differences in the two spectrograms below. <br>" \
                             "The guitar has a vertical pattern, the trumpet a horizontal one. <br>" \
                             "The guitar is more likely to be classified as country, the trumpet as jazz. <br><br> " \
-                            "</p>"
+                            "Besides from visualising audio signals as spectrograms, this app classifies input sounds" \
+                            " into music genres, using spectrograms. <br> And does so correctly in 72% of the cases.<br><br>" \
+                            "Be sure to give it a try</p>"

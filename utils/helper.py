@@ -34,7 +34,7 @@ def get_song(file):
 
 def display_expander_and_explanation():
     b, col, bu = st.columns((1, 4, 1))
-    my_expander = col.expander('More about spectrograms')
+    my_expander = col.expander('Tell me more...')
     with my_expander:
         st.markdown("<h3 style='text-align: center; color: #deb887;'>What are spectrograms?</h3>",
                     unsafe_allow_html=True)
