@@ -27,7 +27,7 @@ error_message_two = "<p style='text-align: center; color: #D33682; font-size: 15
 
 error_message_three = "<p style='text-align: center; color: #D33682; font-size: 15px;'> " \
                       "Wow, that is a big file you've linked there. <br>" \
-                      "Unfortunately we only accept files up to 10MB. <br>" \
+                      "Unfortunately we only accept files up to 15MB. <br>" \
                       "Could you try again with a shorter song, please? </p>"
 
 error_message_four = "<p style='text-align: center; color: #D33682; font-size: 15px;'> " \

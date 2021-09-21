@@ -1,5 +1,4 @@
 import os
-
 import librosa.display
 import streamlit as st
 import gc
@@ -17,7 +16,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 if 'latest_link' not in st.session_state:
     st.session_state.latest_link = None
 
-model = helper.load_model('custom_cnn_2d.h5')  # load keras model
+model = helper.load_model('model/custom_cnn_2d.h5')  # load keras model
 
 st.markdown("<h1 style='text-align: center; color: white;'>SOME MELODIOUS PLOTS</h3>", unsafe_allow_html=True)
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center}</style>',
@@ -30,10 +29,17 @@ if sound_choice == my_variables.options_radio[0]:
 
 elif sound_choice == my_variables.options_radio[1]:
     buf, col0, buff = helper.define_column_zero()
-    uploaded_file = col0.file_uploader('')
+    uploaded_file = col0.file_uploader('Better not use files bigger than 15MB')
     col1, buffer, col2, col3 = helper.define_column_widths()
 
     if uploaded_file is not None:
+        filesize = uploaded_file.size
+        if filesize > 15000000:   #15MB
+            size_mb = round(int(filesize) / 1000000, 1)
+            col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
+                          unsafe_allow_html=True)
+            st.markdown(my_variables.error_message_three, unsafe_allow_html=True)
+
         upload_name = uploaded_file.name
         song = helper.get_song(uploaded_file)
         if song is None:
@@ -75,7 +81,7 @@ elif sound_choice == my_variables.options_radio[3]:
         filesize, artist_title = helper.get_filesize(provided_link)
         if filesize is None and artist_title is None:
             st.markdown(my_variables.error_message_five, unsafe_allow_html=True)
-        elif filesize > 50000000:  # 50MB
+        elif filesize > 15000000:  # 15MB
             size_mb = round(int(filesize) / 1000000, 1)
             col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
                       unsafe_allow_html=True)
