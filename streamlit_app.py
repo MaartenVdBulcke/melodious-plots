@@ -39,20 +39,20 @@ elif sound_choice == my_variables.options_radio[1]:
             col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
                           unsafe_allow_html=True)
             st.markdown(my_variables.error_message_three, unsafe_allow_html=True)
-
-        upload_name = uploaded_file.name
-        song = helper.get_song(uploaded_file)
-        if song is None:
-            st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
         else:
-            col0.audio(uploaded_file)
-            col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>", unsafe_allow_html=True)
-            uploaded_file.close()  # delete buffered upload data
-            song_beginnings = helper.take_first_part_of_songs(song, 45)
-            file_au = song_beginnings.export(format='au')
-            signal, _ = librosa.load(file_au, sr=None)
-            librosa_input = helper.get_librosa_input(signal)
-            plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
+            upload_name = uploaded_file.name
+            song = helper.get_song(uploaded_file)
+            if song is None:
+                st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
+            else:
+                col0.audio(uploaded_file)
+                col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>", unsafe_allow_html=True)
+                uploaded_file.close()  # delete buffered upload data
+                song_beginnings = helper.take_first_part_of_songs(song, 45)
+                file_au = song_beginnings.export(format='au')
+                signal, _ = librosa.load(file_au, sr=None)
+                librosa_input = helper.get_librosa_input(signal)
+                plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
 
 elif sound_choice == my_variables.options_radio[2]:
     buf, col0, buff = helper.define_column_zero()
