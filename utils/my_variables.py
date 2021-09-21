@@ -47,12 +47,12 @@ error_message_six = "<p style='text-align: center; color: #D33682; font-size: 15
 
 about_this_app_part_one = "<p style='text-align: center; color:white; font-size: 15px;'> " \
                           "Spectrograms are melodious plots.<br> They make sound visible. <br><br> " \
-                          "They do not only look fascinating. They are also used in practical" \
+                          "They do not only look fascinating. <br> They are also used in practical" \
                           " applications like speech recognition or music analysis." \
                           " </p>"
 
 about_this_app_part_two = "<p style='text-align: center; color:white; font-size: 15px;'> " \
-                          "This app shows you the spectrogram of input sounds." \
+                          "This app shows you the spectrogram of input sounds.<br>" \
                           " Based upon that spectrogram, the app also makes a prediction on the genre" \
                           " of the input sound. <br> And does so correctly in 72% of the cases. <br>" \
                           "Be sure to give it a try. </p>"
