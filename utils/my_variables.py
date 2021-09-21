@@ -48,21 +48,26 @@ error_message_six = "<p style='text-align: center; color: #D33682; font-size: 15
 about_this_app_part_one = "<p style='text-align: center; color:white; font-size: 15px;'> " \
                           "Spectrograms are melodious plots.<br> They make sound visible. <br><br> " \
                           "They do not only look fascinating. They are also used in practical" \
-                          " applications like speech recognition or music analysis. <br> </p>"
+                          " applications like speech recognition or music analysis." \
+                          " </p>"
 
 about_this_app_part_two = "<p style='text-align: center; color:white; font-size: 15px;'> " \
-                          "You can choose if you want to plot the y-axis on a linear or a logarithmic scale.<br>" \
-                          "One: human hearing responds logarithmically to sound instead of linear. <br>" \
-                          "Two: switching between linear of logarithmic " \
-                          "can improve the readability (and beauty) of a spectrogram. " \
-                          "</p>"
+                          "This app shows you the spectrogram of input sounds." \
+                          " Based upon that spectrogram, the app also makes a prediction on the genre" \
+                          " of the input sound. <br> And does so correctly in 72% of the cases. <br>" \
+                          "Be sure to give it a try. </p>"
 
 about_this_app_part_three = "<p style='text-align: center; color:white; font-size: 15px;'> " \
-                            "Spectrograms show the different characteristics in sounds. <br>" \
-                            "When using simple audio signals, it is easy for the human eye to distinguish between different types of music:<br> " \
-                            "Just take a look at the differences in the two spectrograms below. <br>" \
-                            "The guitar has a vertical pattern, the trumpet a horizontal one. <br>" \
-                            "The guitar is more likely to be classified as country, the trumpet as jazz. <br><br> " \
-                            "Besides from visualising audio signals as spectrograms, this app classifies input sounds" \
-                            " into music genres, using spectrograms. <br> And does so correctly in 72% of the cases.<br><br>" \
-                            "Be sure to give it a try</p>"
+                            "You can choose if you want to plot the y-axis on a linear or a logarithmic scale.<br>" \
+                            "One: human hearing responds logarithmically to sound instead of linear. <br>" \
+                            "Two: switching between linear of logarithmic " \
+                            "can improve the readability (and beauty) of a spectrogram. " \
+                            "</p>"
+
+about_this_app_part_four = "<p style='text-align: center; color:white; font-size: 15px;'> " \
+                           "Spectrograms show the different characteristics in sounds. <br>" \
+                           "When using simple audio signals, it is easy for the human eye to distinguish between different types of music:<br> " \
+                           "Just take a look at the differences in the two spectrograms below. <br>" \
+                           "The guitar has a vertical pattern, the trumpet a horizontal one. <br>" \
+                           "The guitar is more likely to be classified as country, the trumpet as jazz. <br><br> " \
+                           "</p>"

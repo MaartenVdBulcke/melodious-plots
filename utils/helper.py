@@ -39,12 +39,15 @@ def display_expander_and_explanation():
         st.markdown("<h3 style='text-align: center; color: #deb887;'>What are spectrograms?</h3>",
                     unsafe_allow_html=True)
         st.markdown(my_variables.about_this_app_part_one, unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center; color: #deb887;'>The vertical axis</h3>",
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>Plotting and genre classifying</h3>",
                     unsafe_allow_html=True)
         st.markdown(my_variables.about_this_app_part_two, unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center; color: #deb887;'>Distinguishing sounds visually</h3>",
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>The vertical axis</h3>",
                     unsafe_allow_html=True)
         st.markdown(my_variables.about_this_app_part_three, unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #deb887;'>Distinguishing sounds visually</h3>",
+                    unsafe_allow_html=True)
+        st.markdown(my_variables.about_this_app_part_four, unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center; color: #deb887;'>Enjoy some melodious plots</h3>",
                     unsafe_allow_html=True)
 
