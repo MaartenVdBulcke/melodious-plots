@@ -75,7 +75,7 @@ elif sound_choice == my_variables.options_radio[3]:
         filesize, artist_title = helper.get_filesize(provided_link)
         if filesize is None and artist_title is None:
             st.markdown(my_variables.error_message_five, unsafe_allow_html=True)
-        elif filesize > 10000000:  # 10MB
+        elif filesize > 50000000:  # 50MB
             size_mb = round(int(filesize) / 1000000, 1)
             col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
                       unsafe_allow_html=True)
