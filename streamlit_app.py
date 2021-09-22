@@ -18,10 +18,7 @@ if 'latest_link' not in st.session_state:
 
 model = helper.load_model('model/custom_cnn_2d.h5')  # load keras model
 
-st.markdown("<a style='display:inline;margin:0 0 0 72%;font-size:11px;color: #deb887;;' "
-            "href='https://www.linkedin.com/in/maartenvdbulcke-gent'>LinkedIn</a>"
-            "<a style='display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;' "
-            "href='https://github.com/MaartenVdBulcke/some-melodious-plots'>GitHub</a>",
+st.markdown(my_variables.show_hyperlinks,
             unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center; color: white;'>SOME MELODIOUS PLOTS</h3>", unsafe_allow_html=True)
