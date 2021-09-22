@@ -18,6 +18,12 @@ if 'latest_link' not in st.session_state:
 
 model = helper.load_model('model/custom_cnn_2d.h5')  # load keras model
 
+st.markdown("<a style='display:inline;margin:0 0 0 72%;font-size:11px;color: #deb887;;' "
+            "href='https://www.linkedin.com/in/maartenvdbulcke-gent'>LinkedIn</a>"
+            "<a style='display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;' "
+            "href='https://github.com/MaartenVdBulcke/some-melodious-plots'>GitHub</a>",
+            unsafe_allow_html=True)
+
 st.markdown("<h1 style='text-align: center; color: white;'>SOME MELODIOUS PLOTS</h3>", unsafe_allow_html=True)
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center}</style>',
          unsafe_allow_html=True)
@@ -34,7 +40,7 @@ elif sound_choice == my_variables.options_radio[1]:
 
     if uploaded_file is not None:
         filesize = uploaded_file.size
-        if filesize > 15000000:   #15MB
+        if filesize > 15000000:  # 15MB
             size_mb = round(int(filesize) / 1000000, 1)
             col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
                           unsafe_allow_html=True)
@@ -53,6 +59,7 @@ elif sound_choice == my_variables.options_radio[1]:
                 signal, _ = librosa.load(file_au, sr=None)
                 librosa_input = helper.get_librosa_input(signal)
                 plot_and_predict.predict_genre_show_plots(librosa_input, signal, model, col1, col2, col3)
+
 
 elif sound_choice == my_variables.options_radio[2]:
     buf, col0, buff = helper.define_column_zero()
@@ -84,7 +91,7 @@ elif sound_choice == my_variables.options_radio[3]:
         elif filesize > 15000000:  # 15MB
             size_mb = round(int(filesize) / 1000000, 1)
             col0.markdown(f"<p style='text-align: center; color: #D33682; font-size: 15px;'>filesize: {size_mb}MB</p>",
-                      unsafe_allow_html=True)
+                          unsafe_allow_html=True)
             st.markdown(my_variables.error_message_three, unsafe_allow_html=True)
         else:
             valid = helper.download_from_youtube(provided_link)
@@ -102,7 +109,7 @@ elif sound_choice == my_variables.options_radio[3]:
                             st.markdown(my_variables.error_message_two, unsafe_allow_html=True)
                         else:
                             col1.markdown("<h3 style='text-align: center; color: white;'>CUSTOMIZE</h3>",
-                                  unsafe_allow_html=True)
+                                          unsafe_allow_html=True)
                             song_beginnings = helper.take_first_part_of_songs(song, 45)
                             file_au = song_beginnings.export(format='au')
                             signal, _ = librosa.load(file_au, sr=None)
