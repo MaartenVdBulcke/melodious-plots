@@ -48,7 +48,7 @@ error_message_six = "<p style='text-align: center; color: #D33682; font-size: 15
 about_this_app_part_one = "<p style='text-align: center; color:white; font-size: 15px;'> " \
                           "Spectrograms are melodious plots.<br> They make sound visible. <br><br> " \
                           "They do not only look fascinating. <br> They are also used in practical" \
-                          " applications like speech recognition or music analysis." \
+                          " applications like speech and animal sound recognition, or music analysis." \
                           " </p>"
 
 about_this_app_part_two = "<p style='text-align: center; color:white; font-size: 15px;'> " \
@@ -72,8 +72,7 @@ about_this_app_part_four = "<p style='text-align: center; color:white; font-size
                            "The guitar is more likely to be classified as country, the trumpet as jazz. <br>" \
                            "</p>"
 
-
 show_hyperlinks = "<a style='display:inline;margin:0 0 0 72%;font-size:11px;color: #deb887;;' " \
                   "href='https://www.linkedin.com/in/maartenvdbulcke-gent'>LinkedIn</a>" \
-            "<a style='display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;' " \
-            "href='https://github.com/MaartenVdBulcke/some-melodious-plots'>GitHub</a>"
+                  "<a style='display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;' " \
+                  "href='https://github.com/MaartenVdBulcke/some-melodious-plots'>GitHub</a>"
