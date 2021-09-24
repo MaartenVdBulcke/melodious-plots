@@ -5,7 +5,6 @@ import gc
 import glob
 import validators
 
-
 from utils import helper, plot_and_predict, my_variables
 
 # set-up streamlit layout
@@ -18,8 +17,8 @@ if 'latest_link' not in st.session_state:
 
 model = helper.load_model('model/custom_cnn_2d.h5')  # load keras model
 
-st.markdown(my_variables.show_hyperlinks,
-            unsafe_allow_html=True)
+st.markdown(my_variables.hyperlink_linkedin, unsafe_allow_html=True)
+st.markdown(my_variables.hyperlink_github, unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center; color: white;'>SOME MELODIOUS PLOTS</h3>", unsafe_allow_html=True)
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center}</style>',
