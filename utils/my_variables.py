@@ -74,5 +74,5 @@ about_this_app_part_four = "<p style='text-align: center; color:white; font-size
 
 show_hyperlinks = "<a style='display:inline;margin:0 0 0 72%;font-size:11px;color: #deb887;target='_blank';' " \
                   "href='https://www.linkedin.com/in/maartenvdbulcke-gent'>LinkedIn</a>" \
-                  "<a style='display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;'target=_blank';' " \
+                  "<a style='display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;target='_blank';' " \
                   "href='https://github.com/MaartenVdBulcke/some-melodious-plots'>GitHub</a>"
