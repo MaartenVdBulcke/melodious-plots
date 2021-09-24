@@ -72,7 +72,7 @@ about_this_app_part_four = "<p style='text-align: center; color:white; font-size
                            "The guitar is more likely to be classified as country, the trumpet as jazz. <br>" \
                            "</p>"
 
-show_hyperlinks = "<a style='target:_blank;display:inline;margin:0 0 0 72%;font-size:11px;color: #deb887;' " \
-                  "href='https://www.linkedin.com/in/maartenvdbulcke-gent'>LinkedIn</a>" \
-                  "<a style='target:_blank;display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;'" \
-                  "href='https://github.com/MaartenVdBulcke/some-melodious-plots'>GitHub</a>"
+show_hyperlinks = """<a target="_blank" style="display:inline;margin:0 0 0 72%;font-size:11px;color:#deb887;"
+href="https://www.linkedin.com/in/maartenvdbulcke-gent">LinkedIn</a> 
+<a target="_blank" style="display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;" 
+href="https://github.com/MaartenVdBulcke/some-melodious-plots'>GitHub</a>" """
