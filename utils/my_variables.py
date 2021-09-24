@@ -76,4 +76,4 @@ hyperlink_linkedin = """<a target="_blank" style="display:inline;margin:0 0 0 72
 href="https://www.linkedin.com/in/maartenvdbulcke-gent">LinkedIn</a> """
 
 hyperlink_github = """<a target="_blank" style="display:inline;margin:0 0 0 1%;font-size:11px;color: #deb887;"
-href="https://github.com/MaartenVdBulcke/some-melodious-plots'>GitHub</a> """
+href="https://github.com/MaartenVdBulcke/some-melodious-plots">GitHub</a> """
