@@ -10,16 +10,16 @@ from utils import helper, my_variables
 def plot_spectrogram(input_for_librosa, x_min, x_max, y_ax_choice, colormap_choice,
                      y_min, y_max):
     fig, ax = plt.subplots()
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.spines['bottom'].set_visible(False)
-    ax.spines['left'].set_visible(False)
+    fig.patch.set_alpha(0.0)
+    ax.spines[['top', 'right', 'bottom', 'left']].set_visible(False)
+    ax.tick_params(left=False, bottom=False)
 
     librosa.display.specshow(input_for_librosa, x_axis='time', y_axis=y_ax_choice, cmap=colormap_choice)
     plt.xlim([x_min, x_max])
     plt.ylim([y_min, y_max])
     plt.xlabel('Time [seconds]')
     plt.ylabel('Frequency [Hz]')
+    plt.savefig('acousticguitar.png', dpi=300)
     return fig
 
 
