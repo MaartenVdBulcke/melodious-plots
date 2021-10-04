@@ -8,7 +8,7 @@ import validators
 from utils import helper, plot_and_predict, my_variables
 
 # set-up streamlit layout
-st.set_page_config(page_title="some melodious plots", layout="wide")
+st.set_page_config(page_title="melodious plots", layout="wide")
 hide_st_style = """ <style> footer {visibility: hidden;} </style> """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
@@ -20,9 +20,9 @@ model = helper.load_model('model/custom_cnn_2d.h5')  # load keras model
 # st.markdown(my_variables.hyperlink_linkedin, unsafe_allow_html=True)
 # st.markdown(my_variables.hyperlink_github, unsafe_allow_html=True)
 st.write('[LinkedIn](https://www.linkedin.com/in/maartenvdbulcke-gent) '
-         ' [GitHub](https://github.com/MaartenVdBulcke/some-melodious-plots)')
+         ' [GitHub](https://github.com/MaartenVdBulcke/melodious-plots)')
 
-st.markdown("<h1 style='text-align: center; color: white;'>SOME MELODIOUS PLOTS</h3>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: white;'>MELODIOUS PLOTS</h3>", unsafe_allow_html=True)
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center}</style>',
          unsafe_allow_html=True)
 
