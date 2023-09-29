@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "melodious-plots"
+version = "0.1.0"
+description = ""
+authors = ["maarten.vdbul <maarten.vdbul@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+librosa = "0.8.1"
+matplotlib = "3.4.3"
+streamlit = "0.88.0"
+tensorflow-gpu = "2.5.0"
+pydub = "0.25.1"
+plotly = "5.3.1"
+validators = "0.18.2"
+youtube-dl = "2021.6.6"
+protobuf = "3.20.*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
